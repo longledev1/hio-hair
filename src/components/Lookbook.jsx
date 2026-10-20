@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Play, Volume2, VolumeX } from 'lucide-react';
 import { LOOKBOOK_IMAGES } from '../data/content';
+import { LazyImage } from './LazyImage';
 
 export const Lookbook = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -86,11 +87,11 @@ export const Lookbook = () => {
                     className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 ) : (
-                  <img
+                  <LazyImage
                     src={item.url}
                     alt={item.title || "Lookbook hair artistry"}
                     className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                    loading="lazy"
+                    containerClassName="w-full h-full"
                   />
                 )}
                 

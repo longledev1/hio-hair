@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import { BRAND } from '../data/content';
+import { LazyImage } from './LazyImage';
 
 export const Services = () => {
   const sectionRef = useRef(null);
@@ -140,11 +141,11 @@ export const Services = () => {
                 item.isLead ? 'ring-1 ring-[#A17C6D]/40 shadow-lg' : ''
               }`}
             >
-              <img
+              <LazyImage
                 src={item.src}
                 alt={item.title || 'Hio Hair Studio Curation'}
                 className="w-full h-full object-cover object-center"
-                loading="lazy"
+                containerClassName="w-full h-full"
               />
 
               {item.isLead ? (
@@ -205,11 +206,11 @@ export const Services = () => {
                 }`}
               >
                 {/* Ảnh thẻ */}
-                <img
+                <LazyImage
                   src={item.src}
                   alt={item.title || 'Hio Hair Studio Curation'}
                   className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  loading="lazy"
+                  containerClassName="w-full h-full"
                 />
 
                 {/* Lớp gradient overlay tối điện ảnh cho ảnh đại diện */}

@@ -1,7 +1,7 @@
 export const BRAND = {
   name: "HIO Hair Studio",
   tagline: "Quiet Luxury & Editorial Hair Artistry",
-  bookingUrl: "https://calendly.com", // Configurable booking link
+  bookingUrl: "https://www.facebook.com/profile.php?id=61580346459730", // Facebook booking link
   phone: "+84 (0) 90 123 4567",
   email: "concierge@hiohairstudio.com",
   address: {

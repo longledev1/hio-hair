@@ -1,5 +1,6 @@
 import React from "react";
 import { STUDIO_FEATURES, STYLISTS } from "../data/content";
+import { LazyImage } from "./LazyImage";
 
 export const Studio = () => {
   return (
@@ -41,11 +42,11 @@ export const Studio = () => {
           <div className="lg:col-span-7 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <div className="space-y-3 sm:space-y-4 md:space-y-6">
               <div className="aspect-[3/4] overflow-hidden border border-[#E5D8C8] bg-[#F5F0E9] shadow-xs">
-                <img
+                <LazyImage
                   src="/phil_1.png"
                   alt="Hio Studio Interior Wash Suite"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  loading="lazy"
+                  containerClassName="w-full h-full"
                 />
               </div>
               <div className="p-3 sm:p-4 bg-[#F5F0E9] border border-[#E5D8C8] text-center">
@@ -62,11 +63,11 @@ export const Studio = () => {
                 </span>
               </div>
               <div className="aspect-[3/4] overflow-hidden border border-[#E5D8C8] bg-[#F5F0E9] shadow-xs">
-                <img
+                <LazyImage
                   src="/phil_3.jpg"
                   alt="Styling Station"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  loading="lazy"
+                  containerClassName="w-full h-full"
                 />
               </div>
             </div>
@@ -92,11 +93,11 @@ export const Studio = () => {
             {STYLISTS.map((stylist, index) => (
               <div key={index} className="group">
                 <div className="aspect-[3/4] overflow-hidden mb-4 sm:mb-6 border border-[#E5D8C8] bg-[#E5D8C8]/20 shadow-xs">
-                  <img
+                  <LazyImage
                     src={stylist.image}
                     alt={stylist.name}
                     className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 transition-all duration-700"
-                    loading="lazy"
+                    containerClassName="w-full h-full"
                   />
                 </div>
                 <h4 className="font-serif text-xl sm:text-2xl text-[#302724]">

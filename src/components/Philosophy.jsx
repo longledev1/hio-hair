@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { BRAND } from "../data/content";
+import { LazyImage } from "./LazyImage";
 
 export const Philosophy = () => {
   const sectionRef = useRef(null);
@@ -108,11 +109,11 @@ export const Philosophy = () => {
                 }}
                 className="absolute inset-0 rounded-xs overflow-hidden border border-[#E5D8C8] bg-[#241D1A] z-10 origin-bottom-right"
               >
-                <img
+                <LazyImage
                   src="/phil_1.png"
                   alt="Hio Hair Studio Hair Texture Artistry"
                   className="w-full h-full object-cover filter contrast-105"
-                  loading="lazy"
+                  containerClassName="w-full h-full"
                 />
               </motion.div>
 
@@ -135,11 +136,11 @@ export const Philosophy = () => {
                 }}
                 className="absolute inset-0 rounded-xs overflow-hidden border border-[#E5D8C8] bg-[#302724] z-20 origin-bottom-left"
               >
-                <img
+                <LazyImage
                   src="/phil_2.png"
                   alt="Hio Hair Studio Sanctuary Environment"
                   className="w-full h-full object-cover"
-                  loading="lazy"
+                  containerClassName="w-full h-full"
                 />
 
                 <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-5 sm:left-5 sm:right-5 p-3 sm:p-4 bg-[#FFFEFC]/90 backdrop-blur-md border border-[#E5D8C8]/60 shadow-xs">
