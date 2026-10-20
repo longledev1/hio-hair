@@ -8,8 +8,10 @@ export const Services = () => {
   const sectionRef = useRef(null);
 
   // Kích hoạt animation khi người dùng cuộn tới phần Services
+  // Trên mobile section rất dài nên dùng amount nhỏ (0.05 hoặc margin) để kích hoạt ngay khi mép trên chạm vào
   const isInView = useInView(sectionRef, {
-    amount: 0.25,
+    amount: 0.05,
+    margin: "100px 0px 0px 0px",
     once: true,
   });
 
