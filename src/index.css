@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #F5F0E9;
+  --color-champagne: #E5D8C8;
+  --color-bronze: #A17C6D;
+  --color-taupe: #84746A;
+  --color-espresso: #302724;
+  --color-softwhite: #FFFEFC;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #F5F0E9;
+    color: #302724;
+  }
+
+  /* Ẩn con trỏ chuột gốc của hệ điều hành trên máy tính khi KHÔNG mở modal */
+  @media (hover: hover) and (pointer: fine) {
+    html:not(.modal-open) body:not(.modal-open),
+    html:not(.modal-open) body:not(.modal-open) * {
+      cursor: none !important;
+    }
+
+    html.modal-open,
+    html.modal-open body,
+    html.modal-open * {
+      cursor: auto !important;
+    }
+
+    html.modal-open a,
+    html.modal-open button,
+    html.modal-open [role="button"],
+    html.modal-open video {
+      cursor: pointer !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom editorial utility classes */
+.editorial-line {
+  position: relative;
+}
+.editorial-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #A17C6D;
+  opacity: 0.4;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.editorial-line:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Glass & metallic accents */
+.glass-nav {
+  background: rgba(245, 240, 233, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bronze-glow {
+  box-shadow: 0 10px 30px -10px rgba(161, 124, 109, 0.25);
+}
+
+/* Đồng bộ Marquee 100% bằng CSS Animation thuần túy */
+@keyframes marqueeSync {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeSync 25s linear infinite;
+  will-change: transform;
+}
+
+/* Loop vô tận cho comment cards chạy sau video */
+@keyframes loopComments {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-loop-comments {
+  display: flex;
+  width: max-content;
+  animation: loopComments 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-loop-comments:hover {
+  animation-play-state: paused;
+}
